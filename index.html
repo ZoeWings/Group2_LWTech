@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Class Scheduler for CSD</title>
+	<link href="MainPage.css" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<div style="width: 100%; height: 100%; background: #005F83">
+			<h1>Computing Software Development and Computer Science Pathways</h1>
+		</div>
+	</header>
+	<div class="page_margin">
+		<div class="header_container">
+			<br><br><br><br><br>
+			<p id="paragraph_description">At Lake Washington Institute of Technology, we offer diverse pathways for
+				students to embark on their
+				journey towards a career as either a software developer or a software engineer.</p><br>
+			<div id="class_rec1">
+				<h3>
+					Computing and Software Development, BAS
+					<br>
+					<br>
+					Computing and Software Development, AAS-T
+					<br>
+					<br>
+					Certificates
+				</h3>
+			</div>
+			<div id="class_rec2">
+				<h3>
+					<br>
+					<br>
+					Computer Science DTA/MRP
+					<br>
+					<br>
+					Computer Science, BS
+				</h3>
+			</div>
+		</div>
+		<br>
+		<br>
+		<p id="paragraph_description">
+			Share your academic background and goals. By answering the following questions, you allow us to better
+			understand your unique <br>situation, enabling us to guide you toward the right educational journey for you.
+			<br>
+		</p>
+		<br>
+		<br>
+
+		<div id="subHead">What are your priorities?</div>
+		<br><br><br>
+		<div class="inner_margin">
+			<div>
+
+				<p>
+					Priority 1
+					<select title="priority1" id="priority1">
+						<option>Length of the course taken</option>
+						<option>One of the CSD careers</option>
+						<option>Transfer to University</option>
+						<option>Expand upon education(already have credits)</option>
+						<option>Expand upon education(already have work experience in CSD)</option>
+					</select>
+				</p>
+				<br>
+				<br>
+				<p>
+					Priority 2
+					<select title="priority2" id="priority2">
+						<option>Length of the course taken</option>
+						<option>One of the CSD careers</option>
+						<option>Transfer to University</option>
+						<option>Expand upon education(already have credits)</option>
+						<option>Expand upon education(already have work experience in CSD)</option>
+						<option>No other priorities for class searching</option>
+					</select>
+				</p>
+				<br>
+				<br><br>
+
+				<!-- <p>
+		Priority 3
+		<select id="priority3">
+			<option>Length of the course taken</option>
+			<option>One of the CSD careers</option>
+			<option>Transfer to University</option>
+			<option>Expand upon education(already have credits)</option>
+			<option>Expand upon education(already have work experience in CSD)</option>
+			<option>No other priorities for class searching</option>
+		</select>
+	</p>
+	<br>
+	<br> -->
+			</div>
+		</div>
+
+		<div id="subHead">What is your background?</div>
+		<div class="inner_margin">
+			<div id="sub_text">
+				<br>
+				<br>
+				<br>
+				<p>
+					Do you have 90 credits?
+					<select title="NineCredit" id="NineCredit">
+						<option>yes</option>
+						<option>no</option>
+					</select>
+				</p>
+				<br>
+				<br>
+				<p>
+					Do you have prior work experience in tech?
+					<select title="workEXP" id="workEXP">
+						<option>yes</option>
+						<option>no</option>
+					</select>
+				</p>
+				<br>
+				<br>
+				<p>
+					Desired time to finish?
+					<select title="timeToFinish" id="timeToFinish">
+						<option>1 year or less</option>
+						<option>2 years</option>
+						<option>over 2 years</option>
+					</select>
+				</p>
+				<br>
+				<br>
+				<p>
+					Career goal
+					<select title="careerGoal" id="careerGoal">
+						<option>Computer Science Career</option>
+						<option>Software Developer</option>
+						<option>Web Development</option>
+					</select>
+				</p>
+				<br>
+				<br>
+				<p>
+					Do you want to transfer to University after finishing the program?
+					<select title="planForUni" id="planForUni">
+						<option>yes</option>
+						<option>no</option>
+					</select>
+				</p>
+				<br>
+				<br>
+				<br>
+				<button id="submit" onclick="results()">
+					submit
+				</button>
+				<br>
+				<br>
+				<br>
+				<div id="rec3">
+					<div id="paragraph_description">Our recommended program(s) based on your answers above</div>
+					<br>
+					<div id="rec4">
+						<div id="option_label"
+							style="color: #005F83; font-size: 16px; font-family: Inter; font-weight: 700; line-height: 20px; letter-spacing: 0.32px; word-wrap: break-word">
+							Option 1</div>
+						<p>Recommend degree: <span id="recommendedText">...</span><br><a
+								href="https://catalog.lwtech.edu/content.php?catoid=15&navoid=825"><span
+									id="link"></span></a></p>
+
+						<br>
+						<p>Other options: <span id="otherOption1">...</span> <span id="otherOption2"></span></p>
+					</div>
+					<br>
+					<br>
+					<div id="paragraph_description"
+						style="color: #005F83; font-size: 16px; font-family: Arial, Helvetica, sans-serif; font-weight: 700; line-height: 20px; letter-spacing: 0.32px; word-wrap: break-word">
+						We are more than happy to talk to you if you have further questions. Please contact our
+						admission coach.</div>
+					<textarea title="contact-text" placeholder="Let us know!" id="myText">
+	</textarea>
+					<button id="email_button" onclick="sendMail(); return false">Email Admission Coach</button>
+				</div>
+			</div>
+		</div>
+		<div id="bottom_gap"></div>
+		<script src="index.js"></script>
+</body>

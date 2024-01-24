@@ -6,35 +6,37 @@ header {
 
 #class_rec1 {
 	text-align: left;
-	width: 529px;
-	height: 224px;
+	width: 500px;
+	height: 200px;
 	flex-shrink: 0;
 	border-radius: 16px;
-	background: rgba(0, 95, 131, 0.05);
+	background: #F0F4F8;
 	display: inline-block;
+	margin: 10px;
 }
 
 #class_rec2 {
 	text-align: left;
-	width: 529px;
-	height: 224px;
+	width: 500px;
+	height: 200px;
 	flex-shrink: 0;
 	border-radius: 16px;
-	background: rgba(0, 95, 131, 0.05);
+	background: #F0F4F8;
 	display: inline-block;
+	margin: 10px;
 }
 
 h1 {
 	color: white;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
 	margin: 0;
 	font-weight: 700;
 	letter-spacing: 0.48px;
 	word-wrap: break-word;
-	font-size: 24px;
+	font-size: 28px;
 	line-height: 1.2;
 	display: inline-block;
-	background: #005F83;
+	background: #3C4858;
 	padding: 10px;
 	border-radius: 10px;
 	box-sizing: border-box;
@@ -43,19 +45,24 @@ h1 {
 }
 
 h3 {
-	color: rgb(0, 95, 131);
-	font-family: Arial, Helvetica, sans-serif;
-
+	color: #3C4858;
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	font-weight: 600;
+	margin: 10px 0;
 }
 
 p {
-	color: rgb(0, 95, 131);
-	font-family: Arial, Helvetica, sans-serif;
-	font-weight: 700;
+	color: #3C4858;
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	margin: 10px 0;
 }
 
 body {
 	margin: 0;
+	background: #FFFFFF;
 }
 
 select {
@@ -64,12 +71,12 @@ select {
 	align-items: center;
 	gap: 40px;
 	border-radius: 8px;
-	border: 1px solid var(--material-theme-sys-light-primary, #176490);
-	background: var(--white, #FFF);
-	box-shadow: 0px 4px 5px 2px rgba(62, 171, 194, 0.30);
+	border: 1px solid #B0BEC5;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 5px 2px rgba(62, 171, 194, 0.10);
 	color: #444;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 13px;
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+	font-size: 14px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 20px;
@@ -83,21 +90,21 @@ select {
 	width: 392px;
 	padding: 12px 13px;
 	align-items: center;
-	background: #005F83;
+	background: #3C4858;
 	color: #FFF;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 18px;
 	font-style: normal;
 	font-weight: 500;
 	line-height: normal;
 }
 
 #paragraph_description {
-	color: #005F83;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 16px;
+	color: #3C4858;
+	font-family: Open Sans, Arial, Helvetica, sans-serif;
+	font-size: 18px;
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 600;
 	line-height: 20px;
 	letter-spacing: 0.32px;
 }
@@ -109,42 +116,45 @@ select {
 #priority2 {}
 
 #rec3 {
-	width: 1078px;
-	height: 896px;
+	width: 1020px;
+	height: 860px;
 	flex-shrink: 0;
 	border-radius: 16px;
-	background: rgba(0, 95, 131, 0.05);
+	background: #F0F4F8;
+	margin: 10px;
 }
 
 #rec4 {
-	width: 804px;
-	height: 184px;
+	width: 760px;
+	height: 160px;
 	flex-shrink: 0;
 	border-radius: 16px;
-	background: #FFF;
+	background: #FFFFFF;
+	margin: 10px;
 }
 
 #email_button {
 	/* margin-left: 15%;
 	margin-right: 15%; */
 	display: flex;
-	width: 256px;
-	padding: 18px 190px;
+	width: 240px;
+	padding: 16px 180px;
 	justify-content: center;
 	align-items: center;
 	gap: 16px;
-	background: #005F83;
+	background: #3C4858;
 	color: #FFF;
 	text-align: center;
+	
 
 	/* button */
-	font-family: Inter;
-	font-size: 24px;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 22px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: 20px;
 	/* 83.333% */
-	letter-spacing: 0.96px;
+	letter-spacing: 0.88px;
 	border: none;
 }
 
@@ -155,21 +165,21 @@ textarea {}
 #submit {
 	position: relative;
 	display: flex;
-	width: 256px;
+	width: 240px;
 	margin: 20px auto;
-	padding: 18px 0;
+	padding: 16px 0;
 	justify-content: center;
 	align-items: center;
 	gap: 16px;
 	color: #FFF;
 	text-align: center;
-	font-family: Inter;
-	font-size: 24px;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
+	font-size: 22px;
 	font-style: normal;
 	font-weight: 700;
 	line-height: 20px;
-	letter-spacing: 0.96px;
-	background: #005F83;
+	letter-spacing: 0.88px;
+	background: #3C4858;
 	border: none;
 }
 

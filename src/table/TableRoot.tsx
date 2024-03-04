@@ -5,6 +5,8 @@ import { useMemo, useState } from "react"
 import myClasses from './Classes.json';
 import myDegrees from './Degrees.json';
 import { TableItem } from "./TableItem";
+import Table from 'react-bootstrap/Table';
+
 
 export interface IClass {
     className: string;
@@ -27,6 +29,10 @@ export interface IClassWithSub {
     classId: number,
     sub: number[];
     "pre-req": number[];
+}
+
+function range(start: number, stop: number, step: number = 1): number[] {
+    return Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step))
 }
 
 export const TableRoot = () => {
@@ -70,71 +76,86 @@ export const TableRoot = () => {
     const { classNames } = TableRootStyles();
 
     return (
-        <div className={classNames.app}>
-            <div className={classNames.pageTitle}>
-                <h1 className={classNames.h1}>{'New CSD Programs List'}</h1>
+        <div>
+            <div>
+                <h1>{'New CSD Programs List'}</h1>
                 <IconButton onClick={() => setIsViewingInfo(!isViewingInfo)} iconProps={{iconName: 'Info'}} />
             </div>
-    
-            {/* header items */}
-            <div className={classNames.root}>
-                {degrees.map(degree => (
-                    <div key={degree.degreeId} className={classNames.header}>
-                        <span>{degree.degreeName}</span>
-                    </div>
-                ))}
-            </div>
-    
-            {/* body items */}
-            <div className={classNames.root}>
-                {degrees.map(degree => (
-                    <div key={degree.degreeId}>
-                        {degree.quarters.map(quarter => (
-                            <div key={quarter.quarter}>
-                                <div className={classNames.wrapper}>
-                                    <h3>{quarter.quarter === 0 ? 'Prerequisites' : `Quarter ${quarter.quarter}`}</h3>
-                                </div>
-                                {quarter.classes.map((_class) => {
-                                    const classInfo = classes.find(x => x.classId === _class.classId);
-                                    const hasSubs = _class.sub?.length > 0;
-                                    if (classInfo !== undefined) {
-                                        return (
-                                            <div key={classInfo.classId} className={hasSubs ? classNames.subClassWrapper : ''}>
-                                                <TableItem 
-                                                onSelectItem={(item) => {_onClick(item)}} 
-                                                item={classInfo} 
-                                                selectedItems={selectedClasses} 
-                                                prerequisiteItems={prerequisiteItems}
-                                                />
-
-                                                {hasSubs && _class.sub.map(sub => {
-                                                    const subClass = classes.find(x => x.classId === sub);
-                                                    if (subClass !== undefined) {
-                                                        return (
-                                                            <div key={subClass.classId} className = {classNames.noBorderClass}>
-                                                                <div className={classNames.orWrapper}><h4>OR</h4></div>
-
-                                                                <TableItem 
-                                                                onSelectItem={(item) => {_onClick(item)}} 
-                                                                item={classInfo} 
-                                                                selectedItems={selectedClasses} 
-                                                                prerequisiteItems={prerequisiteItems}
-                                                                />
-                                                                
-                                                            </div>
-                                                        )
-                                                    }
-                                                })}
-
-                                            </div>
-                                        )
-                                    }
-                                })}
-                            </div>
+            <Table striped bordered>
+                {/* header items */}
+                <thead>
+                    <tr>
+                        <th>Quarters \ Degrees</th>
+                        {degrees.map(degree => (
+                            <th key={degree.degreeId}>
+                                <span>{degree.degreeName}</span>
+                            </th>
                         ))}
-                    </div>
-                ))}
-            </div>
+                    </tr>
+                </thead>
+                {/* body items */}
+                <tbody>
+                    {range(0, 12).map((quarter) => {
+                        const degreeQuarterClasses: IClassWithSub[][] = degrees.map((degree) => {
+                            const quarterIndex = degree.quarters.findIndex((degreeQuarter) => degreeQuarter.quarter == quarter)
+                            if (quarterIndex == -1) {
+                                return [] as IClassWithSub[]
+                            } else {
+                                return degree.quarters[quarterIndex].classes
+                            }
+                        })
+
+                        return (
+                            <tr key={'quarter-' + quarter}>
+                                <th>{quarter === 0 ? 'Prerequisites' : `Quarter ${quarter}`}</th>
+                                {degreeQuarterClasses.map((quarterClasses) => (
+                                    <td>
+                                        <div>
+                                            {quarterClasses.map((_class) => {
+                                                const classInfo = classes.find(x => x.classId === _class.classId);
+                                                const hasSubs = _class.sub?.length > 0;
+                                                if (classInfo !== undefined) {
+                                                    return (
+                                                        <div key={classInfo.classId} className={hasSubs ? classNames.subClassWrapper : ''}>
+                                                            <TableItem 
+                                                            onSelectItem={(item) => {_onClick(item)}} 
+                                                            item={classInfo} 
+                                                            selectedItems={selectedClasses} 
+                                                            prerequisiteItems={prerequisiteItems}
+                                                            />
+
+                                                            {hasSubs && _class.sub.map(sub => {
+                                                                const subClass = classes.find(x => x.classId === sub);
+                                                                if (subClass !== undefined) {
+                                                                    return (
+                                                                        <div key={subClass.classId} className = {classNames.noBorderClass}>
+                                                                            <div className={classNames.orWrapper}><h4>OR</h4></div>
+
+                                                                            <TableItem 
+                                                                            onSelectItem={(item) => {_onClick(item)}} 
+                                                                            item={classInfo} 
+                                                                            selectedItems={selectedClasses} 
+                                                                            prerequisiteItems={prerequisiteItems}
+                                                                            />
+                                                                            
+                                                                        </div>
+                                                                    )
+                                                                }
+                                                            })}
+
+                                                        </div>
+                                                    )
+                                                }
+                                            })}
+                                        </div>
+                                    </td>
+                                ))}
+                            </tr>
+                        );
+                    })}
+                </tbody>
+            </Table>
+    
             <Dialog 
                 hidden={!isViewingInfo}
                 minWidth={400}
@@ -160,6 +181,5 @@ export const TableRoot = () => {
                 </div>
             </Dialog>
         </div>
-    );
-    
+    ); 
 }

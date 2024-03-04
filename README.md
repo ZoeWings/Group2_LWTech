@@ -12,6 +12,12 @@
 * update `import ... from "react"` to `import React, ... from "react"` to [fix the UMD global error](https://stackoverflow.com/a/70122171)
 * update `App.tsx` to use `TableRoot`
 
+### Step 3: Refactoring
+
+* added `bootstrap` & `react-bootstrap` for `Table` (striped, bordered)
+* modify the `TableRoot` component to use `react-bootstrap/Table` rather than using `div` directly
+* modify the logic to render the table as Degrees (columns) by Quarters (rows). The included logic first iterates through the degrees, which would be equivalent to rows in a table. Hence the function is modified to iterate through the quarters (0 - 12), and then extracts the particular list of classes based on the quarter and then render them accordingly.
+* `quarter == 0` is displayed as prerequisites
 
 ## (Below were original README from `create-react-app`)Getting Started with Create React App
 

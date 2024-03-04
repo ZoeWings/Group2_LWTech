@@ -1,9 +1,16 @@
 # README
 
+
+### Step 1: create react app
 * `create-react-app . --template typescript`
 * create `.env` file with `PORT=3001`
 * `npm start` to start the app
 
+### Step 2: incorporate React Class Selection Project 2023
+* copy `React Class Selection Project 2023` from the zip file and move files into `src`
+* `npm install @fluentui/react` (missing dependency)
+* update `import ... from "react"` to `import React, ... from "react"` to [fix the UMD global error](https://stackoverflow.com/a/70122171)
+* update `App.tsx` to use `TableRoot`
 
 
 ## (Below were original README from `create-react-app`)Getting Started with Create React App
@@ -16,8 +23,8 @@ In the project directory, you can run:
 
 #### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in the development mo de.\
+ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.

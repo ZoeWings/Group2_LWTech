@@ -14,7 +14,7 @@ export const TableItem = (props: {
     const { 
         item, 
         selectedItems, 
-        prerequisiteItems,
+        //prerequisiteItems,
         onSelectItem,
     } = props;
     
@@ -26,7 +26,7 @@ export const TableItem = (props: {
         let hasTakenAllPreReq;
         hasTakenAllPreReq=true;
 
-        item["pre-req"].map((x)=>{
+        item["pre-req"].forEach((x)=>{
             const index = selectedItems.findIndex((y)=> y.classId === x)
             if(index === -1){ // selected items does not have a pre req
                 hasTakenAllPreReq = false;

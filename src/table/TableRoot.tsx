@@ -1,5 +1,5 @@
 "use client"; // This is a client component 👈🏽
-import { Button, DefaultButton, DetailsList, Dialog, DialogType, IColumn, IconButton, PrimaryButton, initializeIcons } from "@fluentui/react"
+import { Dialog, DialogType, IconButton, initializeIcons } from "@fluentui/react"
 import { TableRootStyles } from "./TableRootStyles"
 import { useMemo, useState } from "react"
 import myClasses from './Classes.json';
@@ -39,11 +39,11 @@ export const TableRoot = () => {
 
     useMemo(() => {
         setClasses(myClasses as IClass[])
-    }, [myClasses])
+    }, [])
 
     useMemo(() => {
         setDegrees(myDegrees as IDegree[])
-    }, [degrees])
+    }, [])
 
     const _onClick = (item: IClass) => {
         const classes = [...selectedClasses]

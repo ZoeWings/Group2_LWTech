@@ -62,17 +62,6 @@ export const TableRoot = () => {
         setSelectedClasses(classes);
     }
 
-    const prerequisiteItems = useMemo(() => {
-        const prerequisiteSet = new Set<number>();
-        selectedClasses.forEach(selectedClass => {
-            selectedClass["pre-req"].forEach(prerequisiteId => {
-                prerequisiteSet.add(prerequisiteId);
-            });
-        });
-
-        return classes.filter(classItem => prerequisiteSet.has(classItem.classId));
-    }, [selectedClasses, classes]);
-
     const { classNames } = TableRootStyles();
 
     return (
@@ -121,7 +110,7 @@ export const TableRoot = () => {
                                                             onSelectItem={(item) => {_onClick(item)}} 
                                                             item={classInfo} 
                                                             selectedItems={selectedClasses} 
-                                                            prerequisiteItems={prerequisiteItems}
+                                                            prerequisiteItems={classes}
                                                             />
 
                                                             {hasSubs && _class.sub.map(sub => {
@@ -135,7 +124,7 @@ export const TableRoot = () => {
                                                                             onSelectItem={(item) => {_onClick(item)}} 
                                                                             item={classInfo} 
                                                                             selectedItems={selectedClasses} 
-                                                                            prerequisiteItems={prerequisiteItems}
+                                                                            prerequisiteItems={classes}
                                                                             />
                                                                             
                                                                         </div>

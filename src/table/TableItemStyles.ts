@@ -29,7 +29,5 @@ export const useTableItemStyles = (isSelected : boolean, hasPrerequisite : boole
                 userSelect:'none',
                 
             },
-
-
         });
     };

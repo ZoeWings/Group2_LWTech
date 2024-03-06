@@ -27,6 +27,14 @@
   * classes with unfulfilled prereqs (grayed out and cannot be selected)
   * classes with fulfilled prereqs (free to select)
 
+### Step 5: add tooltip showing missing prerequisites
+
+* change `hasPrerequisites`, which returns a `boolean`, to `unfulfilledPreqrequisites` that returns an array, and modify references to the `hasPreqrequisites` to `unfulfilledPrequisites.length > 0`
+* pass in the whole `classes` array instead of the `prequisiteItems` which doesn't hold the right list of references
+* calculate the `unfulfilledPrequisites` via checking whether the prereq exists in `selectedItems`. if the item doesnt exist, reference against `classes`
+* use `bootstrap` to show a tooltip that renders the list of missing prereqs
+* update the colors
+
 ## (Below were original README from `create-react-app`)Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

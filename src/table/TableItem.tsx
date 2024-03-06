@@ -3,7 +3,8 @@
 import React, { useMemo } from "react";
 import { IClass } from "./TableRoot";
 import { useTableItemStyles } from "./TableItemStyles";
-
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 
 export const TableItem = (props: {
     item: IClass; // each class
@@ -14,7 +15,7 @@ export const TableItem = (props: {
     const { 
         item, 
         selectedItems, 
-        //prerequisiteItems,
+        prerequisiteItems,
         onSelectItem,
     } = props;
     
@@ -22,23 +23,33 @@ export const TableItem = (props: {
         return selectedItems.findIndex(x => x.className === item.className) >= 0;
     }, [item, selectedItems]);
 
-    const hasPrerequisites = useMemo(() => { // if class has prerequisites 
-        let hasTakenAllPreReq;
-        hasTakenAllPreReq=true;
-
-        item["pre-req"].forEach((x)=>{
-            const index = selectedItems.findIndex((y)=> y.classId === x)
-            if(index === -1){ // selected items does not have a pre req
-                hasTakenAllPreReq = false;
-                return;
+    const unfulfilledPrereqs = useMemo(() => {
+        let result: string[] = []
+        item['pre-req'].forEach((prereq) => {
+            const selected = selectedItems.findIndex((selected) => selected.classId === prereq)
+            if (selected === -1) {
+                const prereqItem = prerequisiteItems.find((preqItem) => preqItem.classId === prereq)
+                if (prereqItem) {
+                    result.push(prereqItem.className)
+                }
             }
         })
-        return item["pre-req"].length > 0 && hasTakenAllPreReq === false;
-    }, [item,selectedItems]);
+        return result
+    }, [item, selectedItems, prerequisiteItems])
+
+    const renderToolTip = (props: any) => (
+        unfulfilledPrereqs.length > 0 ?
+                <Tooltip id='tooltip' {...props}
+                >
+                    <ul><p>Missing Prereqs:</p>
+                    {unfulfilledPrereqs.map((prereq) => (<li>{prereq}</li>))}
+                    </ul>
+                </Tooltip> : <></>
+    )
 
     const handleClick = () => {
         // Check if the class has prerequisites and is not selected
-        if (hasPrerequisites && !isSelected) {
+        if (unfulfilledPrereqs.length > 0 && !isSelected) {
             return; // Do nothing if the class has prerequisites and is not selected
         }
 
@@ -46,15 +57,19 @@ export const TableItem = (props: {
         onSelectItem(item);
     };
 
-    const {classNames} = useTableItemStyles(isSelected, hasPrerequisites)
+    const {classNames} = useTableItemStyles(isSelected, unfulfilledPrereqs.length > 0)
 
     return (
+        <OverlayTrigger
+            placement="auto"
+            delay={{ show: 250, hide: 400 }}
+            overlay={renderToolTip}
+        >
+            <div onClick={handleClick} className={classNames.class}>
+                <span>{item.className}</span>
+            </div>
 
-        <div onClick={handleClick} className={classNames.class}>
-                                                    
-            <span>{item.className}</span>
-
-        </div>
+        </OverlayTrigger>
         
     )
 }

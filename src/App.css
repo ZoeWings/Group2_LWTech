@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+div.tooltip-inner {
+  border: 1px solid red;
+  background-color: #cccccc;
+  color: red;
+  text-align: left;
+}

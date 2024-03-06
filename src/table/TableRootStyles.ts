@@ -15,7 +15,6 @@ export const TableRootStyles = () => {
             },
             header: {
                 display: 'flex',
-                border: '3px solid black',
                 color: 'white',
                 backgroundColor:"#005f83",
                 margin: '5px',
@@ -37,7 +36,6 @@ export const TableRootStyles = () => {
                 color:'#099ecc',
                 textAlign:'center',
                 fontFamily: 'Roboto, sans-serif',
-                borderBottom: '1px solid black',
                 'hr':{
                     margin:'0px'
                 }
@@ -62,48 +60,17 @@ export const TableRootStyles = () => {
             },
             orWrapper:{
                 textAlign:'center',
-                width:'156px',
-                margin:'-5px 5px -5px 5px',
-                fontFamily: 'Roboto, sans-serif',
-                backgroundColor: "#97999c",
                 cursor:'default',
                 userSelect:'none',
                 border: "transparent",
-                'h4':{
-                    margin:'0px',
-                    color:'red'
-                },
-                'h3':{
-                    margin:'12px'
-                }
-
+                color:'#cc8888',
+                fontStyle: 'italic',
+                fontSize: '0.8em',
             },
             subClassWrapper:{
-                '>:first-child':{
-                    borderTop:'3px solid black',
-                    borderLeft:'3px solid black',
-                    borderRight:'3px solid black',
-                    borderBottom:'transparent'
-                },
-                '>*+*':{
-                    borderTop:'transparent',
-                    borderBottom:'transparent',
-                    '>*':{
-                        borderLeft:'3px solid black',
-                        borderRight:'3px solid black',
-                        borderTop:'transparent',
-                        borderBottom:'transparent'
-                    }
-                },
-                '>:last-child':{
-                    '>:last-child':{
-                        borderBottom:'3px solid black'
-                    }
-                }
-
+                border: '1px dashed gray',
             },
             noBorderClass:{
-                border:"transparent"
             }
 
         });

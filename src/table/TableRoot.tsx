@@ -116,7 +116,7 @@ export const TableRoot = () => {
                                                 const hasSubs = _class.sub?.length > 0;
                                                 if (classInfo !== undefined) {
                                                     return (
-                                                        <div key={classInfo.classId} className={hasSubs ? classNames.subClassWrapper : ''}>
+                                                        <div key={classInfo.classId} className={classNames.subClassWrapper}>
                                                             <TableItem 
                                                             onSelectItem={(item) => {_onClick(item)}} 
                                                             item={classInfo} 
@@ -129,7 +129,7 @@ export const TableRoot = () => {
                                                                 if (subClass !== undefined) {
                                                                     return (
                                                                         <div key={subClass.classId} className = {classNames.noBorderClass}>
-                                                                            <div className={classNames.orWrapper}><h4>OR</h4></div>
+                                                                            <div className={classNames.orWrapper}>---or---</div>
 
                                                                             <TableItem 
                                                                             onSelectItem={(item) => {_onClick(item)}} 

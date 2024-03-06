@@ -19,6 +19,14 @@
 * modify the logic to render the table as Degrees (columns) by Quarters (rows). The included logic first iterates through the degrees, which would be equivalent to rows in a table. Hence the function is modified to iterate through the quarters (0 - 12), and then extracts the particular list of classes based on the quarter and then render them accordingly.
 * `quarter == 0` is displayed as prerequisites
 
+### Step 4: update colors
+
+* updated the default colors, font size, weight, style, and border of the following scenarios:
+  * classes with no prereqs (free to select)
+    * classes can be selected as hovered over
+  * classes with unfulfilled prereqs (grayed out and cannot be selected)
+  * classes with fulfilled prereqs (free to select)
+
 ## (Below were original README from `create-react-app`)Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

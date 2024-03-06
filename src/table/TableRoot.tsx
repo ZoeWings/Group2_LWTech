@@ -122,7 +122,7 @@ export const TableRoot = () => {
 
                                                                             <TableItem 
                                                                             onSelectItem={(item) => {_onClick(item)}} 
-                                                                            item={classInfo} 
+                                                                            item={subClass} 
                                                                             selectedItems={selectedClasses} 
                                                                             prerequisiteItems={classes}
                                                                             />

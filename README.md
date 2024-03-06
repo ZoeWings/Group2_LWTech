@@ -35,6 +35,9 @@
 * use `bootstrap` to show a tooltip that renders the list of missing prereqs
 * update the colors
 
+### Step 6: fix incorrect substitute class
+* the code pass in `classInfo` where `subClass` was expected. fixed it
+
 ## (Below were original README from `create-react-app`)Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
